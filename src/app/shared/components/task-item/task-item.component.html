@@ -1,0 +1,32 @@
+<ion-card class="task-card" [class.completed]="task.completed">
+  <ion-card-content>
+    <div class="task-row">
+
+      <ion-button fill="clear" class="toggle-btn" (click)="onToggle()">
+        <ion-icon slot="icon-only" [name]="
+            task.completed
+              ? 'checkmark-circle-outline'
+              : 'radio-button-off-outline'
+          "></ion-icon>
+      </ion-button>
+
+
+      <div class="info" (click)="onToggle()">
+        <div class="title">{{ task.title }}</div>
+        <div class="meta">
+          <ion-chip class="outline-chip ion-no-margin" [ngStyle]="{ '--cat-color': task.categoryColor }">
+            <span class="dot" [style.backgroundColor]="task.categoryColor"></span>
+            <ion-label>{{ task.categoryName }}</ion-label>
+          </ion-chip>
+
+
+          <span class="time">{{ timeAgo }}</span>
+        </div>
+      </div>
+
+      <ion-button fill="clear" class="more-btn" (click)="openActionSheet()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical" size="small"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>
