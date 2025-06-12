@@ -1,0 +1,74 @@
+/* 1) Campos sin líneas nativas y con outline suave */
+.field-item {
+  --inner-border-width: 0;
+  padding: 0.5rem 0;
+
+  ion-input {
+    --padding-start: 0.75rem;
+    --padding-end: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    height: 2.5rem;
+  }
+}
+
+/* 2) Puntito de color */
+.color-picker-wrapper {
+  display: flex;
+  align-items: center;
+
+  .dot {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+  }
+
+  ion-input {
+    width: 50rem;
+    padding: 0;
+    border: none;
+    height: auto;
+  }
+}
+
+/* 3) Botones redondeados */
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.rounded-btn {
+  --border-radius: 10px;
+  flex: 1;
+  text-transform: none !important;
+}
+
+/* 4) Labels como bloques con margin */
+.field-item ion-label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+/* 5) Popover de selección (si lo usas) */
+:host ::ng-deep .popover-content .select-interface-option {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #fff;
+}
+
+:host ::ng-deep .popover-content .select-interface-option .dot {
+  margin-right: 0.75rem;
+}
+
+.header-md {
+  box-shadow: none;
+}
+h4{
+  font-weight: bold;
+}

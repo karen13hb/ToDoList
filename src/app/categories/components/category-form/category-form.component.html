@@ -1,0 +1,53 @@
+<ion-header class="ion-padding">
+  <ion-toolbar>
+    <h4>{{ category ? 'Editar' : 'Crear nueva' }} categoría</h4>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+
+    <ion-item lines="none" class="field-item">
+      <ion-label position="stacked">Nombre de la categoría</ion-label>
+      <ion-input
+        formControlName="name"
+        placeholder="Ej: Trabajo, Personal..."
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="field-item">
+      <ion-label position="stacked">Color</ion-label>
+      <div class="color-picker-wrapper">
+        <span class="dot" [style.backgroundColor]="form.value.color"></span>
+        <ion-input
+          type="color"
+          formControlName="color"
+        ></ion-input>
+      </div>
+    </ion-item>
+
+    <div class="buttons">
+      <ion-button
+        fill="outline"
+        class="rounded-btn"
+        (click)="cancel()"
+      >
+        Cancelar
+      </ion-button>
+      <ion-button
+        expand="block"
+        class="rounded-btn"
+        color="primary"
+        (click)="onSave()"
+        [disabled]="!form.valid"
+      >
+        {{ category ? 'Guardar' : 'Crear Categoría' }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

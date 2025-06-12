@@ -1,0 +1,16 @@
+<ion-card class="task-card">
+  <ion-card-content>
+    <div class="task-row">
+
+      <span class="dot" [style.backgroundColor]="data.color"></span>
+
+      <div class="info">
+        <div class="title">{{ data.name }}</div>
+      </div>
+
+      <ion-button fill="clear" class="more-btn" (click)="openActionSheet()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical" size="small"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>
