@@ -1,0 +1,41 @@
+<ion-header class="ion-padding">
+  <ion-toolbar>
+
+    <div class="header-title">
+      <h1>Tasky</h1>
+      <p>Organiza tu día con estilo</p>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="search-outline" size="small" color="warning"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="notifications-outline" size="small" color="warning"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="tasks" href="/tabs/tasks" routerDirection="root">
+        <ion-icon name="list-outline"></ion-icon>
+        <ion-label>Tareas</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="category" href="/tabs/category" routerDirection="root">
+        <ion-icon name="folder-outline"></ion-icon>
+        <ion-label>Categorías</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openFabMenu($event)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
