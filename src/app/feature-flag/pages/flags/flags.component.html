@@ -1,0 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Feature Flags</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <app-feature-toggle [enabled]="enabled" (toggle)="onToggle($event)"></app-feature-toggle>
+</ion-content>
