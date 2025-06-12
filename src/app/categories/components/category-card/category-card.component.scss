@@ -1,0 +1,39 @@
+ .task-card {
+   margin-bottom: 1em;
+ }
+
+ .task-row {
+   display: flex;
+   align-items: center;
+ }
+
+ .dot {
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   margin-right: 0.75em;
+ }
+
+ .info {
+   flex: 1;
+ }
+
+ .title {
+   font-size: 1.1em;
+   font-weight: 600;
+ }
+
+ .more-btn {
+   --padding-start: 0;
+   --padding-end: 0;
+ }
+
+ .card-content-md {
+   -webkit-padding-start: 16px;
+
+   -webkit-padding-end: 16px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   font-size: 0.875rem;
+   line-height: 1.5;
+ }
