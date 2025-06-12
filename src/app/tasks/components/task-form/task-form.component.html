@@ -1,0 +1,68 @@
+<ion-header class="ion-padding">
+  <ion-toolbar>
+    <h4>{{ task ? 'Editar' : 'Crear nueva' }} tarea</h4>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+
+
+    <ion-item lines="none" class="field-item">
+      <ion-label position="stacked">Título de la tarea</ion-label>
+      <ion-input
+        formControlName="title"
+        placeholder="Ej: Revisar correos pendientes"
+      ></ion-input>
+    </ion-item>
+    <!-- <ion-note color="danger"
+      *ngIf="form.get('title')?.hasError('required')">
+      El título es requerido.
+    </ion-note> -->
+
+    <ion-item lines="none" class="field-item">
+      <ion-label position="stacked" class="ion-margin-bottom">Categoría </ion-label>
+      <ion-select
+        formControlName="categoryId"
+        placeholder="Seleccionar categoría"
+        interface="popover"
+        class="custom-select"
+      >
+        <ion-select-option
+          *ngFor="let c of categories"
+          [value]="c.id"
+        >
+          <span
+            class="dot"
+            [style.backgroundColor]="c.color"
+          ></span>
+          {{ c.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="buttons">
+      <ion-button
+        fill="outline"
+        class="rounded-btn"
+        (click)="cancel()"
+      >
+        Cancelar
+      </ion-button>
+      <ion-button
+        expand="block"
+        class="rounded-btn"
+        color="primary"
+        (click)="save()"
+        [disabled]="!form.valid"
+      >
+        {{ task ? 'Guardar' : 'Crear Tarea' }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

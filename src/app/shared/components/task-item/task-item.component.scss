@@ -1,0 +1,88 @@
+.task-card {
+  margin: 0.5rem 0;
+  --ion-background-color: #fff;
+  --border-radius: 0.75rem;
+
+  &.completed {
+    opacity: 0.6;
+
+    .title {
+      text-decoration: line-through;
+    }
+  }
+
+  .task-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .toggle-btn,
+  .more-btn {
+    flex: 0 0 auto;
+    --padding-start: 0;
+    --padding-end: 0;
+    --min-width: 32px;
+    --min-height: 32px;
+  }
+
+  .info {
+    flex: 1;
+    cursor: pointer;
+
+    .title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+
+      .cat-chip {
+        --background: transparent;
+        --border-color: #ddd;
+        --border-width: 1px;
+        --padding-start: 0.5rem;
+        --padding-end: 0.5rem;
+        height: 24px;
+        font-size: 0.75rem;
+      }
+
+      .time {
+        font-size: 0.75rem;
+        color: #777;
+      }
+    }
+  }
+}
+
+.outline-chip {
+  background: transparent !important;
+  color: #333;
+  border: 1px solid var(--cat-color) !important;
+  --border-radius: 16px;
+  padding-inline: 0.6rem;
+  height: 32px;
+}
+
+/* El puntito usa la misma --cat-color */
+.outline-chip .dot {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.card-content-md {
+  -webkit-padding-start: 16px;
+
+  -webkit-padding-end: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}

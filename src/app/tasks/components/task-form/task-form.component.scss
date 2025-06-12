@@ -1,0 +1,57 @@
+.field-item {
+  --inner-border-width: 0;
+  padding: 0.5rem 0;
+
+  ion-input,
+  ion-select.custom-select {
+    --padding-start: 0.75rem;
+    --padding-end: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    height: 2.5rem;
+  }
+ 
+}
+
+.field-item .dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.rounded-btn {
+  --border-radius: 10px;
+  flex: 1;
+  text-transform: none !important;
+}
+
+:host ::ng-deep .popover-content .select-interface-option {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #fff;
+}
+
+:host ::ng-deep .popover-content .select-interface-option .dot {
+  margin-right: 0.75rem;
+}
+.field-item ion-label {
+  display: block;       
+  margin-bottom: 0.6rem; 
+}
+.header-md {
+  box-shadow: none;
+}
+h4{
+  font-weight: bold;
+}

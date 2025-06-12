@@ -1,22 +1,40 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
+import {
+  provideRouter,
+  Route,
+  withPreloading,
+  PreloadAllModules
+} from '@angular/router';
+
+const routes: Route[] = [
+  { path: '', redirectTo: 'tabs', pathMatch: 'full' },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'tabs',
+    loadComponent: () => import('./tabs/page/tabs/tabs.page').then(m => m.TabsPage),
+    children: [
+      {
+        path: 'tasks',
+        loadComponent: () =>
+          import('./tasks/pages/tasks/tasks.page').then(m => m.TasksPage)
+      },
+      {
+        path: 'category',
+        loadComponent: () =>
+          import('./categories/pages/categories/categories.page').then(m => m.CategoriesPage)
+      },
+      { path: '', redirectTo: 'tasks', pathMatch: 'full' }
+    ]
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+    //  {
+  //   path: 'flags',
+  //   loadChildren: () =>
+  //     import('./feature-flag/feature-flag.module').then(m => m.FeatureFlagModule)
+  // },
+
+  { path: '**', redirectTo: 'tabs' }
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRouting = provideRouter(
+  routes,
+  withPreloading(PreloadAllModules)
+);
