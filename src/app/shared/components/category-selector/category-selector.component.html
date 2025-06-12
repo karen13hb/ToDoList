@@ -1,0 +1,11 @@
+<div class="categories-scroll">
+  <ion-chip
+    *ngFor="let cat of categories"
+    (click)="onSelect(cat.id)"
+    [class.selected]="cat.id === selectedCategoryId"
+  >
+
+    <ion-icon name="ellipse" class="dot" [style.color]="cat.color"></ion-icon>
+    <ion-label>{{ cat.name }}</ion-label>
+  </ion-chip>
+</div>
