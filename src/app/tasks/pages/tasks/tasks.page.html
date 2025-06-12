@@ -1,0 +1,35 @@
+<ion-content class="ion-padding">
+  <div class="task-desc">
+    <h3>Todas las Tareas</h3>
+    <p>Gestiona y organiza tus actividades</p>
+  </div>
+  <br>
+  <h5>Categorías</h5>
+  <app-category-selector [categories]="(categories$ | async) || []" [selectedCategoryId]="filterId$.value"
+    (selectionChange)="onFilterChange($event)">
+  </app-category-selector>
+
+  <ng-container *ngIf="filteredTasks$ | async as tasks">
+    <div class="tasks-header">
+      <h5>{{ filterId$.value && filterId$.value !== 'todas'
+        ? 'Tareas filtradas'
+        : 'Todas las tareas' }}</h5>
+      <span>{{ tasks.length }} tareas</span>
+    </div>
+    
+    <ion-card color="secondary" *ngIf="showExperimental" class="ion-margin">
+      <ion-card-header>
+        <ion-card-title>Modo Experimental</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        ¡Este botón «+ Beta» solo aparece cuando tu feature flag está activado!
+        <ion-button color="tertiary" (click)="doExperimental()">+ Beta</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list [@listAnimation]="tasks">
+      <app-task-item *ngFor="let t of tasks" [task]="t" (toggle)="onToggle($event)" (delete)="onDelete($event)"
+        (edit)="onEdit(t)"></app-task-item>
+    </ion-list>
+  </ng-container>
+</ion-content>
